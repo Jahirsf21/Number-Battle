@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const path = require("path");
+const fs =  require("fs");
 
 app.use(cors());
 app.use(express.json());
@@ -26,11 +27,10 @@ function obtenerPartidas() {
   }
 }
 
-
 // Método para guardar las partidas en un json
 function guardarPartidas() {
   try {
-    fs.writeFileSync(ArchivoPartidas, JSON.stringify(partidas, null, 2));
+    fs.writeFileSync(archivoPartidas, JSON.stringify(partidas, null, 2));
     console.log("Partidas guardadas en el archivo.");
   } catch (error)
   {
