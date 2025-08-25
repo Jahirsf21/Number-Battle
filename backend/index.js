@@ -91,20 +91,27 @@ app.post("/crearPartida", (req, res) => {
   res.json(partida);
 });
 
-
-
 // Método POST, recibe el id de la partida que se esta jugando, el jugador actual y el número ingresado para adivinar.
 // Si el id no existe en las partidas guardadas retorna un mensaje de error 
+// Finaliza si ya se acabaron todas las rondas ambos jugadores
 // retorna la partida actualiza, el mensaje y su tipo (se estan usando sweetAlerts)
 app.post("/realizarIntento", (req, res) => {
   const { partidaId, jugador, intento } = req.body;
   const partida = partidas.find(p => p.id === partidaId);
 
   if (!partida) return res.status(404).json({ error: "Partida no encontrada" });
+  // Se elimina la validación de juego terminado para permitir el último turno del segundo jugador
+  // if (partida.juegoTerminado) return res.status(400).json({ error: "El juego ya ha terminado" });
+  if (partida.turnoActual !== jugador && !partida.juegoTerminado) return res.status(400).json({ error: "No es tu turno" });
 
   const jugadorObj = partida.informacionJugadores[jugador];
   const oponenteNombre = partida.jugador1 === jugador ? partida.jugador2 : partida.jugador1;
   const oponenteObj = partida.informacionJugadores[oponenteNombre];
+
+  // Prevenir errores si un jugador intenta jugar después de haber terminado sus rondas
+  if (jugadorObj.rondaActual >= partida.rondasTotales) {
+    return res.status(400).json({ error: "Ya has completado todas tus rondas." });
+  }
 
   const ronda = jugadorObj.rondas[jugadorObj.rondaActual];
   const guess = parseInt(intento);
@@ -125,23 +132,33 @@ app.post("/realizarIntento", (req, res) => {
     const oponenteTermino = oponenteObj.rondaActual === partida.rondasTotales;
 
     if (jugadorActualTermino && !oponenteTermino) {
- 
       partida.turnoActual = oponenteNombre;
       partida.timestampTurnoInicio = Date.now();
       mensaje += ` Turno de ${oponenteNombre}.`;
 
     } else if (jugadorActualTermino && oponenteTermino) {
       partida.juegoTerminado = true;
+      partida.turnoActual = null;
+
       if (jugadorObj.totalIntentos < oponenteObj.totalIntentos) {
         partida.ganadorPartida = jugador;
       } else if (oponenteObj.totalIntentos < jugadorObj.totalIntentos) {
         partida.ganadorPartida = oponenteNombre;
       } else {
-        partida.ganadorPartida = "Empate";
+        
+        const tiempoTotalJugador = jugadorObj.rondas.reduce((total, r) => total + r.duracion, 0);
+        const tiempoTotalOponente = oponenteObj.rondas.reduce((total, r) => total + r.duracion, 0);
+
+        if (tiempoTotalJugador < tiempoTotalOponente) {
+          partida.ganadorPartida = jugador;
+        } else if (tiempoTotalOponente < tiempoTotalJugador) {
+          partida.ganadorPartida = oponenteNombre;
+        } else {
+          partida.ganadorPartida = "Empate";
+        }
       }
        mensaje += " ¡Juego terminado!";
     } else {
-      
        partida.timestampTurnoInicio = Date.now();
     }
 
@@ -157,6 +174,13 @@ app.post("/realizarIntento", (req, res) => {
     partidaActualizada: partida
   });
 });
+
+// Método GET, retorna todas las partidas finalizadas.
+app.get("/partidas", (req, res) => {
+  const partidasTerminadas = partidas.filter(p => p.juegoTerminado);
+  res.json(partidasTerminadas);
+});
+
 
 app.listen(3000, () => {
   console.log("Servidor escuchando en el puerto 3000");
