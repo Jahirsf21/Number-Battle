@@ -80,7 +80,6 @@ const rondasGanadasJ2 = computed(() => {
   return infoJugador2.value.rondas.filter(r => r.adivinado).length;
 });
 
-a
 const detalleRondas = computed(() => {
   if (!partida.value || !infoJugador1.value || !infoJugador2.value) return [];
 
@@ -91,8 +90,14 @@ const detalleRondas = computed(() => {
     
     let ganadorRonda = 'N/A';
     if (rondaJ1.adivinado && rondaJ2.adivinado) {
-        ganadorRonda = rondaJ1.intentosUsados < rondaJ2.intentosUsados ? jugador1.value :
-                       rondaJ2.intentosUsados < rondaJ1.intentosUsados ? jugador2.value : 'Empate';
+      if (rondaJ1.intentosUsados < rondaJ2.intentosUsados) {
+        ganadorRonda = jugador1.value;
+      } else if (rondaJ2.intentosUsados < rondaJ1.intentosUsados) {
+        ganadorRonda = jugador2.value;
+      } else { 
+        ganadorRonda = rondaJ1.duracion < rondaJ2.duracion ? jugador1.value :
+                       rondaJ2.duracion < rondaJ1.duracion ? jugador2.value : 'Empate';
+      }
     } else if (rondaJ1.adivinado) {
         ganadorRonda = jugador1.value;
     } else if (rondaJ2.adivinado) {
@@ -116,6 +121,7 @@ const volverAlInicio = () => {
   sessionStorage.removeItem('partida');
   router.push('/');
 };
+
 </script>
 
 <style scoped>

@@ -1,121 +1,181 @@
 [
   {
     "id": 1,
-    "jugador1": "Joker",
-    "jugador2": "Sahir",
+    "jugador1": "Jahir",
+    "jugador2": "Deislher",
     "rondasTotales": 3,
-    "turnoActual": "Joker",
-    "juegoTerminado": false,
-    "ganadorPartida": null,
-    "timestampTurnoInicio": 1756089330717,
+    "turnoActual": null,
+    "juegoTerminado": true,
+    "ganadorPartida": "Deislher",
+    "timestampTurnoInicio": 1756092583029,
     "informacionJugadores": {
-      "Joker": {
+      "Jahir": {
         "rondas": [
           {
-            "numeroSecreto": 62,
-            "intentosUsados": 0,
-            "adivinado": false,
-            "duracion": 0
+            "numeroSecreto": 6,
+            "intentosUsados": 6,
+            "adivinado": true,
+            "duracion": 38
           },
           {
-            "numeroSecreto": 50,
-            "intentosUsados": 0,
-            "adivinado": false,
-            "duracion": 0
+            "numeroSecreto": 32,
+            "intentosUsados": 8,
+            "adivinado": true,
+            "duracion": 39
           },
           {
-            "numeroSecreto": 91,
-            "intentosUsados": 0,
-            "adivinado": false,
-            "duracion": 0
+            "numeroSecreto": 41,
+            "intentosUsados": 9,
+            "adivinado": true,
+            "duracion": 25
           }
         ],
-        "rondaActual": 0,
-        "totalIntentos": 0
+        "rondaActual": 3,
+        "totalIntentos": 23
       },
-      "Sahir": {
+      "Deislher": {
         "rondas": [
           {
-            "numeroSecreto": 92,
-            "intentosUsados": 0,
-            "adivinado": false,
-            "duracion": 0
+            "numeroSecreto": 65,
+            "intentosUsados": 5,
+            "adivinado": true,
+            "duracion": 24
           },
           {
-            "numeroSecreto": 98,
-            "intentosUsados": 0,
-            "adivinado": false,
-            "duracion": 0
+            "numeroSecreto": 89,
+            "intentosUsados": 6,
+            "adivinado": true,
+            "duracion": 17
           },
           {
-            "numeroSecreto": 49,
-            "intentosUsados": 0,
-            "adivinado": false,
-            "duracion": 0
+            "numeroSecreto": 7,
+            "intentosUsados": 9,
+            "adivinado": true,
+            "duracion": 18
           }
         ],
-        "rondaActual": 0,
-        "totalIntentos": 0
+        "rondaActual": 3,
+        "totalIntentos": 20
       }
     }
   },
   {
     "id": 2,
-    "jugador1": "SOTA",
-    "jugador2": "Jahir",
+    "jugador1": "Jair",
+    "jugador2": "Deislher",
     "rondasTotales": 3,
-    "turnoActual": "SOTA",
-    "juegoTerminado": false,
-    "ganadorPartida": null,
-    "timestampTurnoInicio": 1756089872107,
+    "turnoActual": null,
+    "juegoTerminado": true,
+    "ganadorPartida": "Jair",
+    "timestampTurnoInicio": 1756093340040,
     "informacionJugadores": {
-      "SOTA": {
+      "Jair": {
         "rondas": [
           {
-            "numeroSecreto": 66,
-            "intentosUsados": 0,
-            "adivinado": false,
-            "duracion": 0
+            "numeroSecreto": 63,
+            "intentosUsados": 5,
+            "adivinado": true,
+            "duracion": 39
           },
           {
-            "numeroSecreto": 45,
-            "intentosUsados": 0,
-            "adivinado": false,
-            "duracion": 0
+            "numeroSecreto": 54,
+            "intentosUsados": 4,
+            "adivinado": true,
+            "duracion": 13
           },
           {
-            "numeroSecreto": 53,
-            "intentosUsados": 0,
-            "adivinado": false,
-            "duracion": 0
+            "numeroSecreto": 12,
+            "intentosUsados": 8,
+            "adivinado": true,
+            "duracion": 22
           }
         ],
-        "rondaActual": 0,
-        "totalIntentos": 0
+        "rondaActual": 3,
+        "totalIntentos": 17
+      },
+      "Deislher": {
+        "rondas": [
+          {
+            "numeroSecreto": 92,
+            "intentosUsados": 8,
+            "adivinado": true,
+            "duracion": 31
+          },
+          {
+            "numeroSecreto": 100,
+            "intentosUsados": 4,
+            "adivinado": true,
+            "duracion": 10
+          },
+          {
+            "numeroSecreto": 67,
+            "intentosUsados": 10,
+            "adivinado": true,
+            "duracion": 26
+          }
+        ],
+        "rondaActual": 3,
+        "totalIntentos": 22
+      }
+    }
+  },
+  {
+    "id": 3,
+    "jugador1": "Deislher",
+    "jugador2": "Jahir",
+    "rondasTotales": 3,
+    "turnoActual": null,
+    "juegoTerminado": true,
+    "ganadorPartida": "Jahir",
+    "timestampTurnoInicio": 1756097381001,
+    "informacionJugadores": {
+      "Deislher": {
+        "rondas": [
+          {
+            "numeroSecreto": 53,
+            "intentosUsados": 2,
+            "adivinado": true,
+            "duracion": 38
+          },
+          {
+            "numeroSecreto": 66,
+            "intentosUsados": 3,
+            "adivinado": true,
+            "duracion": 10
+          },
+          {
+            "numeroSecreto": 79,
+            "intentosUsados": 4,
+            "adivinado": true,
+            "duracion": 13
+          }
+        ],
+        "rondaActual": 3,
+        "totalIntentos": 9
       },
       "Jahir": {
         "rondas": [
           {
-            "numeroSecreto": 3,
-            "intentosUsados": 0,
-            "adivinado": false,
-            "duracion": 0
+            "numeroSecreto": 71,
+            "intentosUsados": 1,
+            "adivinado": true,
+            "duracion": 7
           },
           {
-            "numeroSecreto": 58,
-            "intentosUsados": 0,
-            "adivinado": false,
-            "duracion": 0
+            "numeroSecreto": 92,
+            "intentosUsados": 1,
+            "adivinado": true,
+            "duracion": 4
           },
           {
-            "numeroSecreto": 1,
-            "intentosUsados": 0,
-            "adivinado": false,
-            "duracion": 0
+            "numeroSecreto": 40,
+            "intentosUsados": 1,
+            "adivinado": true,
+            "duracion": 3
           }
         ],
-        "rondaActual": 0,
-        "totalIntentos": 0
+        "rondaActual": 3,
+        "totalIntentos": 3
       }
     }
   }

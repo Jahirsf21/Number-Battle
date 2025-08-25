@@ -92,8 +92,14 @@ function calcularDetalleRondas(partida) {
     
     let ganadorRonda = 'No definida';
     if (rondaJ1.adivinado && rondaJ2.adivinado) {
-      ganadorRonda = rondaJ1.intentosUsados < rondaJ2.intentosUsados ? partida.jugador1 :
-                     rondaJ2.intentosUsados < rondaJ1.intentosUsados ? partida.jugador2 : 'Empate';
+      if (rondaJ1.intentosUsados < rondaJ2.intentosUsados) {
+        ganadorRonda = partida.jugador1;
+      } else if (rondaJ2.intentosUsados < rondaJ1.intentosUsados) {
+        ganadorRonda = partida.jugador2;
+      } else { 
+        ganadorRonda = rondaJ1.duracion < rondaJ2.duracion ? partida.jugador1 :
+                       rondaJ2.duracion < rondaJ1.duracion ? partida.jugador2 : 'Empate';
+      }
     } else if (rondaJ1.adivinado) {
       ganadorRonda = partida.jugador1;
     } else if (rondaJ2.adivinado) {

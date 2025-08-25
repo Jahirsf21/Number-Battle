@@ -48,6 +48,9 @@ app.post("/crearPartida", (req, res) => {
   if (!nombrePrimerJugador || !nombreSegundoJugador) {
     return res.status(400).json({ error: "Los nombres de los jugadores no pueden estar vacíos" });
   }
+  if (nombrePrimerJugador == nombreSegundoJugador) {
+    return res.status(400).json({error: "Los nombres no pueden ser iguales"})
+  }
   
   let jugadores = [nombrePrimerJugador, nombreSegundoJugador]; 
   jugadores = jugadores.sort(() => Math.random() - 0.5); //se cambia el orden de los jugadores de forma random
@@ -100,15 +103,11 @@ app.post("/realizarIntento", (req, res) => {
   const partida = partidas.find(p => p.id === partidaId);
 
   if (!partida) return res.status(404).json({ error: "Partida no encontrada" });
-  // Se elimina la validación de juego terminado para permitir el último turno del segundo jugador
-  // if (partida.juegoTerminado) return res.status(400).json({ error: "El juego ya ha terminado" });
-  if (partida.turnoActual !== jugador && !partida.juegoTerminado) return res.status(400).json({ error: "No es tu turno" });
 
   const jugadorObj = partida.informacionJugadores[jugador];
   const oponenteNombre = partida.jugador1 === jugador ? partida.jugador2 : partida.jugador1;
   const oponenteObj = partida.informacionJugadores[oponenteNombre];
 
-  // Prevenir errores si un jugador intenta jugar después de haber terminado sus rondas
   if (jugadorObj.rondaActual >= partida.rondasTotales) {
     return res.status(400).json({ error: "Ya has completado todas tus rondas." });
   }
