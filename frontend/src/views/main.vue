@@ -18,13 +18,16 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import Swal from 'sweetalert2'
+import { useRouter } from 'vue-router'
 
 const nombreJugador1 = ref('')
 const nombreJugador2 = ref('')
 const partida = ref(null)
 const error = ref('')
+
+const router = useRouter()
 
 async function crearPartida() {
   partida.value = null
@@ -42,7 +45,7 @@ async function crearPartida() {
       Swal.fire({
         icon: 'error',
         title: 'Error',
-        text: data.error || 'Error al crear partida'
+        text: data.error || 'Error al crear partida',
       })
     } else {
       partida.value = data
@@ -50,8 +53,9 @@ async function crearPartida() {
       Swal.fire({
         icon: 'success',
         title: 'Partida creada',
-        text: '¡La partida se creó correctamente!'
+        text: '¡La partida se creó correctamente!',
       })
+      router.push('game')
     }
   } catch (e) {
     Swal.fire({
@@ -61,6 +65,12 @@ async function crearPartida() {
     })
   }
 }
+
+
+function verHistorial() {
+  router.push('history')
+}
+
 
 </script>
 

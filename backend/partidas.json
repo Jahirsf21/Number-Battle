@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "jugador1": "Joker",
+    "jugador2": "Sahir",
+    "rondasTotales": 3,
+    "turnoActual": "Joker",
+    "juegoTerminado": false,
+    "ganadorPartida": null,
+    "timestampTurnoInicio": 1756089330717,
+    "informacionJugadores": {
+      "Joker": {
+        "rondas": [
+          {
+            "numeroSecreto": 62,
+            "intentosUsados": 0,
+            "adivinado": false,
+            "duracion": 0
+          },
+          {
+            "numeroSecreto": 50,
+            "intentosUsados": 0,
+            "adivinado": false,
+            "duracion": 0
+          },
+          {
+            "numeroSecreto": 91,
+            "intentosUsados": 0,
+            "adivinado": false,
+            "duracion": 0
+          }
+        ],
+        "rondaActual": 0,
+        "totalIntentos": 0
+      },
+      "Sahir": {
+        "rondas": [
+          {
+            "numeroSecreto": 92,
+            "intentosUsados": 0,
+            "adivinado": false,
+            "duracion": 0
+          },
+          {
+            "numeroSecreto": 98,
+            "intentosUsados": 0,
+            "adivinado": false,
+            "duracion": 0
+          },
+          {
+            "numeroSecreto": 49,
+            "intentosUsados": 0,
+            "adivinado": false,
+            "duracion": 0
+          }
+        ],
+        "rondaActual": 0,
+        "totalIntentos": 0
+      }
+    }
+  },
+  {
+    "id": 2,
+    "jugador1": "SOTA",
+    "jugador2": "Jahir",
+    "rondasTotales": 3,
+    "turnoActual": "SOTA",
+    "juegoTerminado": false,
+    "ganadorPartida": null,
+    "timestampTurnoInicio": 1756089872107,
+    "informacionJugadores": {
+      "SOTA": {
+        "rondas": [
+          {
+            "numeroSecreto": 66,
+            "intentosUsados": 0,
+            "adivinado": false,
+            "duracion": 0
+          },
+          {
+            "numeroSecreto": 45,
+            "intentosUsados": 0,
+            "adivinado": false,
+            "duracion": 0
+          },
+          {
+            "numeroSecreto": 53,
+            "intentosUsados": 0,
+            "adivinado": false,
+            "duracion": 0
+          }
+        ],
+        "rondaActual": 0,
+        "totalIntentos": 0
+      },
+      "Jahir": {
+        "rondas": [
+          {
+            "numeroSecreto": 3,
+            "intentosUsados": 0,
+            "adivinado": false,
+            "duracion": 0
+          },
+          {
+            "numeroSecreto": 58,
+            "intentosUsados": 0,
+            "adivinado": false,
+            "duracion": 0
+          },
+          {
+            "numeroSecreto": 1,
+            "intentosUsados": 0,
+            "adivinado": false,
+            "duracion": 0
+          }
+        ],
+        "rondaActual": 0,
+        "totalIntentos": 0
+      }
+    }
+  }
+]
