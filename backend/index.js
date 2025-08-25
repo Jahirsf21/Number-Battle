@@ -27,7 +27,10 @@ function obtenerPartidas() {
   }
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5611a47409acbd0ec64f6d3ad6b0edba6944f37f
 // Método para guardar las partidas en un json
 function guardarPartidas() {
   try {
